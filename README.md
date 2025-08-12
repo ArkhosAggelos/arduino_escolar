@@ -18,10 +18,12 @@ Este repositório tem como finalidade:
 
 ## 📁 Estrutura do Repositório
 ```plaintext
-📂 Projetos/              # Códigos completos de projetos Arduino
-📂 Anotacoes/             # Arquivos de estudo e testes
-📂 Diagramas/             # Esquemas de ligação e circuitos
-📂 Bibliotecas/           # Bibliotecas personalizadas ou adaptadas
+📂 Projetos/           
+   📂 Nome_do_Projeto/         # Projetos Arduino        
+      💻 codigos.ino           # Códigos do projeto para Arduino
+      📄 datasheet.pdf         # Folha de dados dos componentes principais e sensores
+      🔋 diagrama.pdf          # Esquemas de ligação e circuitos
+   README.md
 README.md                 # Este documento
 ```
 
