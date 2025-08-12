@@ -5,6 +5,12 @@ Este diretório contém exemplos didáticos para controle de motores DC usando o
 1. **Módulo Padrão - L298N** — Possui pinos **ENA/ENB** para controle de velocidade via PWM.  
 2. **Módulo Mini - TC1508 ou MX1508** — Não possui pinos ENA/ENB dedicados; o PWM é aplicado diretamente nos pinos IN.
 
+No módulo padrão com L298N e dissipador de calor, é possível fornecer uma corrente um pouco maior aos motores.
+Esse modelo possui pinos ENA e ENB para controle de velocidade via PWM, permitindo usar apenas duas portas PWM do Arduino (uma para cada motor).
+Quando os pinos ENA e ENB estão com jumpers, eles permanecem permanentemente habilitados, e o controle de velocidade deve ser feito diretamente nas entradas IN1...IN4.
+Nesse caso, o funcionamento é semelhante ao do módulo mini, que normalmente usa os CIs TC1508 ou MX1508, não possuindo pinos ENABLE dedicados e 
+exigindo quatro portas PWM do Arduino — uma para cada entrada da ponte H.
+
 ---
 
 ## 📜 Objetivo
