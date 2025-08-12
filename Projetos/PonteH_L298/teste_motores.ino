@@ -1,7 +1,8 @@
 /*
-  Teste de motores com Ponte H L298N (padrão e mini)
+  Código para teste de motores com Ponte H L298N (padrão e mini)
   Objetivo: verificar se os motores giram para frente
-  Professor Claudio Roberto da Silva
+  
+  By Professor Claudio Roberto da Silva
 */
 
 // Definição dos pinos conectados à Ponte H
@@ -44,3 +45,8 @@ void loop() {
     analogWrite(IN3, 150);  // Sinal PWM para velocidade
     digitalWrite(IN4, LOW);
 }
+
+/*
+  Depois dos testes ser concluídos é hora de criar as funções dos movimentos.
+  Isso vai fazer com que o código fique bem mais claro e limpo.
+*/
