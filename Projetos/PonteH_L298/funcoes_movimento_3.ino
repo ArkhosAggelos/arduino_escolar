@@ -31,6 +31,8 @@ void loop() {
   
   //Curva suave para a esquerda por 1,5s
   giroSuaveEsquerda(150,1500);
+  parar();
+  delay(800);
 }
 
 // Zera todos os PWMs
