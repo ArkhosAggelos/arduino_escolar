@@ -22,8 +22,8 @@ Este repositório tem como finalidade:
    💻 codigos.ino           # Códigos do projeto para Arduino
    📄 datasheet.pdf         # Folha de dados dos componentes principais e sensores
    🔋 diagrama.pdf          # Esquemas de ligação e circuitos
-README.md
-README.md                 # Este documento
+   📄 README.md
+📄 README.md                 # Este documento
 ```
 
 ---
