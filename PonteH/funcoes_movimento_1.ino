@@ -1,15 +1,32 @@
 /*
-  Código para movimentar um robô com dois motores com Ponte H utilizando chassi modelo 2WD.
+  ============================================================
+  Projeto: Controle de Robô 2WD com Ponte H
+  Placa: Arduino UNO (ou compatível)
+  Autor: Professor Claudio Roberto da Silva
+  ============================================================
+
+  📌 Descrição:
+  Código para movimentar um robô de chassi modelo 2WD
+  utilizando uma Ponte H (L298N ou similar). O robô
+  possui dois motores DC independentes.
+
+  🎯 Objetivo:
+  Demonstrar o uso de funções para otimizar o código e
+  facilitar o controle de movimentos como "frente" e "trás".
+  Esse código também serve para testar se os motores estão
+  girando no mesmo sentido.
+
+  ⚠ Observação Importante:
+  - Se ao movimentar para frente o robô girar sobre o próprio eixo,
+    significa que um motor está invertido. Basta inverter as conexões
+    desse motor na Ponte H.
+  - Para habilitar o movimento para trás, remova as barras "//" de
+    comentário das linhas correspondentes no loop().
+
+  💡 Dica:
+  Ajuste as velocidades de cada motor separadamente para corrigir
+  pequenas diferenças e garantir que o robô siga em linha reta.
   
-  Objetivo: Movimentar o robô de chassi modelo 2WD e demonstrar o uso de funções para
-  otimizar o código. Ao movimentar o robô para frente e para trás, veja se os motores estão 
-  girando no mesmo sentido. Se os motores estiverem girando em sentidos contrários, o robô vai 
-  rotacionar sobre o próprio eixo. Neste caso, apenas inverta as conexões do motor que está 
-  girando o contrário do que deveria. 
-  
-  Se desejar movimentar o robô para trás, retire as barras "//" de comentário das linhas correspondentes.
-  
-  By Professor Claudio Roberto da Silva
 */
 
 // ================================
@@ -50,8 +67,11 @@ void loop() {
   // Para os motores por 200 ms
   pararMotores(200);
   
-  // Movimento para trás (comentado)
-  // tras(130, 140, 2000); // Motor A = 130, Motor B = 140, por 2s
+  // Movimento para trás:
+  // Motor A com velocidade 120 (de 0 a 255)
+  // Motor B com velocidade 150 (de 0 a 255)
+  // Duração: 2000 ms (2 segundos)
+  // tras(130, 140, 2000);
 
   // Para os motores por 200 ms (comentado)
   // pararMotores(200);
@@ -62,8 +82,8 @@ void loop() {
 // ================================
 
 // Movimento para FRENTE
-// vel_IN1 -> velocidade do Motor A (0 a 255)
-// vel_IN3 -> velocidade do Motor B (0 a 255)
+// vel_IN1 -> velocidade do Motor A para frente (0 a 255)
+// vel_IN3 -> velocidade do Motor B para frente (0 a 255)
 // tempo   -> tempo do movimento em milissegundos
 void frente(int vel_IN1, int vel_IN3, int tempo) {
   analogWrite(IN1, vel_IN1); // Motor A recebe PWM para frente
@@ -76,8 +96,8 @@ void frente(int vel_IN1, int vel_IN3, int tempo) {
 }
 
 // Movimento para TRÁS
-// vel_IN2 -> velocidade do Motor A para ré
-// vel_IN4 -> velocidade do Motor B para ré
+// vel_IN2 -> velocidade do Motor A para ré (0 a 255)
+// vel_IN4 -> velocidade do Motor B para ré (0 a 255)
 // tempo   -> tempo do movimento em milissegundos
 void tras(int vel_IN2, int vel_IN4, int tempo) {
   digitalWrite(IN1, LOW);    // Motor A não recebe sinal de frente
