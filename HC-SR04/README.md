@@ -7,6 +7,27 @@ Pequeno guia didático e exemplo de código para medir distâncias usando o **se
 
 ---
 
+## Como ele funciona
+
+1. Emissão – O pino TRIG envia um pulso ultrassônico (40 kHz) no ar.
+
+
+2. Reflexão – Esse som bate em um objeto e retorna.
+
+
+3. Recepção – O pino ECHO detecta o retorno.
+
+
+4. Cálculo – O tempo entre o envio e o recebimento é usado para calcular a distância:
+
+
+
+Distância (cm) = \frac{Tempo\ (µs) \times Velocidade\ do\ som\ (340\ m/s)}{2}
+
+O divisor por 2 é porque o som vai e volta.
+
+---
+
 ## ⚙️ Especificações rápidas
 
 - **Tensão:** 5 V  
