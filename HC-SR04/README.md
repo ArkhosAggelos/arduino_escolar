@@ -21,7 +21,7 @@ Pequeno guia didático e exemplo de código para medir distâncias usando o **se
 4. Cálculo – O tempo entre o envio e o recebimento é usado para calcular a distância:
 
 
-$$Distância (cm) = \frac{Tempo\ (µs) \times Velocidade\ do\ som\ (340\ m/s)}{2}$$
+$$ Distância (cm) = \frac{Tempo\ (µs) \times Velocidade\ do\ som\ (340\ m/s)}{2} $$
 
 O divisor por 2 é porque o som vai e volta.
 
