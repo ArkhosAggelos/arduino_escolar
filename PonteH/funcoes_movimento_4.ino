@@ -19,7 +19,18 @@
 #define IN4 5   // Motor B - ré
 
 // ---------- Utilitário simples ----------
-int clamp255(int v) { return v < 0 ? 0 : (v > 255 ? 255 : v); }
+// Garante que o valor de 'v' esteja dentro do intervalo de 0 a 255.
+int clamp255(int v) {
+    if (v < 0) {
+        return 0;
+    } else {
+        if (v > 255) {
+            return 255;
+        } else {
+            return v;
+        }
+    }
+}
 
 // ---------- Setup ----------
 void setup() {
@@ -157,3 +168,4 @@ void giroNoEixoEsquerda(int velocidade, int tempo) {
   digitalWrite(IN4, LOW);
   delay(tempo);
 }
+
