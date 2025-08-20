@@ -1,6 +1,7 @@
 /*
   Sensor Ultrassônico (HC-SR04 ou compatível)
   Exemplo simples sem bibliotecas.
+  Programação Bloqueante.
   Mede e mostra a distância em centímetros.
 */
 
