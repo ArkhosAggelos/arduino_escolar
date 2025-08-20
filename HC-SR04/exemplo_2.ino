@@ -4,8 +4,8 @@
   Autor: Prof. Claudio Roberto da Silva
 */
 
-#define TRIG 9
-#define ECHO 10
+#define TRIG 7
+#define ECHO 8
 
 // Controle do pulso
 unsigned long inicioPulso = 0;  // marca o início do pulso de eco
@@ -52,7 +52,7 @@ void loop() {
       aguardandoEco = false;
 
       // Calcula a distância
-      float distancia = (duracao * 0.0343) / 2;
+      float distancia = (duracao * 0.0340) / 2;
       if (distancia >= 2 && distancia <= 400) {
         Serial.print("Distancia: ");
         Serial.print(distancia, 1);
@@ -63,6 +63,6 @@ void loop() {
     }
   }
 
-  // 🔄 Aqui pode rodar outras lógicas do robô
+  // Aqui pode rodar outras lógicas do robô
   // mover motores, ler botões, atualizar display, etc.
 }
