@@ -20,8 +20,7 @@ Pequeno guia didático e exemplo de código para medir distâncias usando o **se
 
 4. Cálculo – O tempo entre o envio e o recebimento é usado para calcular a distância:
 
-
-' Distância (cm) = \frac{Tempo\ (µs) \times Velocidade\ do\ som\ (340\ m/s)}{2} '
+<img src="https://latex.codecogs.com/svg.image?&space;Distancia(cm)=\frac{Tempo\;(s)\times&space;Velocidade\;do\;som\;(340\;m/s)}{2}" title=" Distancia(cm)=\frac{Tempo\;(s)\times Velocidade\;do\;som\;(340\;m/s)}{2}" />
 
 O divisor por 2 é porque o som vai e volta.
 
@@ -62,3 +61,42 @@ O divisor por 2 é porque o som vai e volta.
 
 ---
 
+## ⏱️ Programação Bloqueante vs Não Bloqueante
+
+Ao medir distâncias com o sensor ultrassônico HC-SR04 (SONIC), existem duas abordagens principais de programação:
+
+- **Programação Bloqueante**
+
+Usa a função pulseIn() para medir o tempo do pulso no pino ECHO.
+
+Enquanto espera o retorno, o microcontrolador fica parado, sem executar outras tarefas.
+
+É mais simples e didática, ideal para projetos básicos e testes de bancada.
+
+> long duracao = pulseIn(ECHO, HIGH);  
+> float distancia = (duracao * 0.0343) / 2;
+
+
+➡️ **Desvantagem: se o robô precisa movimentar motores, atualizar um display ou ler outros sensores ao mesmo tempo, tudo fica atrasado porque o código trava durante a medição.**
+
+---
+
+-  **Programação Não Bloqueante**
+
+Não usa pulseIn(). Em vez disso, controla o envio e a leitura do pulso com digitalRead() e micros().
+
+O programa não fica preso esperando; pode executar outras tarefas no loop enquanto aguarda o eco.
+
+É mais complexa, mas essencial em projetos de robótica ou sistemas com múltiplas funções simultâneas.
+
+➡️ **Vantagem:** o microcontrolador continua controlando motores, LEDs, comunicação e outros sensores, sem parar o fluxo do programa.
+
+---
+
+## ✅ **Resumo:**
+
+- **Bloqueante:** simples e didático, bom para começar.
+
+- **Não bloqueante:** mais avançado, mas indispensável para aplicações em tempo real ou robôs móveis.
+
+---
