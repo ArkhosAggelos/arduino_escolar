@@ -93,7 +93,7 @@ O programa não fica preso esperando; pode executar outras tarefas no loop enqua
 
 ---
 
-## Exemplos
+## Exemplos de códigos
 
 - Exemplo 1: Código simples e didático utilizando a função pulseIn. Exemplo de programação bloqueante.
 
