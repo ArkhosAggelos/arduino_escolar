@@ -93,6 +93,15 @@ O programa não fica preso esperando; pode executar outras tarefas no loop enqua
 
 ---
 
+## Exemplos
+
+- Exemplo 1: Código simples e didático utilizando a função pulseIn. Exemplo de programação bloqueante.
+
+- Exemplo 2: Codigo mais sofisticado, não usa a função pulseIn desta forma temos um exemplo de programação não bloqueante.
+
+
+---
+
 ## ✅ **Resumo:**
 
 - **Bloqueante:** simples e didático, bom para começar.
