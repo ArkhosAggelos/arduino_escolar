@@ -1,111 +1,111 @@
 # Sensor Ultrassônico (HC-SR04 compatível)
 
-Pequeno guia didático e exemplo de código para medir distâncias usando o **sensor ultrassônico** em projetos com **Arduino** (compatível com o clássico HC-SR04).
+Pequeno guia didático e exemplos de código para medir distâncias usando o **sensor ultrassônico** em projetos com **Arduino** (compatível com o clássico HC-SR04).
 
 > **Para que serve?**  
-> Medir distâncias de ~2 cm a ~400 cm usando ondas sonoras (40 kHz), muito usado em robótica, obstáculos de carrinhos e projetos STEAM.
+> Medir distâncias de ~2 cm a ~400 cm usando ondas sonoras (40 kHz).  
+> Muito usado em robótica, detecção de obstáculos em carrinhos e projetos STEAM.
 
 ---
 
-## Como ele funciona
+## 🔎 Como o sensor funciona
 
-1. Emissão – O pino TRIG envia um pulso ultrassônico (40 kHz) no ar.
-
-
-2. Reflexão – Esse som bate em um objeto e retorna.
-
-
-3. Recepção – O pino ECHO detecta o retorno.
-
-
-4. Cálculo – O tempo entre o envio e o recebimento é usado para calcular a distância:
+1. **Emissão** – O pino **TRIG** envia um pulso ultrassônico (40 kHz) no ar.  
+2. **Reflexão** – Esse som bate em um objeto e retorna.  
+3. **Recepção** – O pino **ECHO** detecta o retorno.  
+4. **Cálculo** – O tempo entre o envio e o recebimento é usado para calcular a distância:
 
 <img src="https://latex.codecogs.com/svg.image?&space;Distancia(cm)=\frac{Tempo\;(s)\times&space;Velocidade\;do\;som\;(340\;m/s)}{2}" title=" Distancia(cm)=\frac{Tempo\;(s)\times Velocidade\;do\;som\;(340\;m/s)}{2}" />
 
-O divisor por 2 é porque o som vai e volta.
+O divisor por 2 é necessário porque o som percorre o caminho **de ida e volta**.
 
 ---
 
 ## ⚙️ Especificações rápidas
 
-- **Tensão:** 5 V  
+- **Tensão de alimentação:** 5 V  
 - **Corrente típica:** ~15 mA  
 - **Alcance:** 2 cm – 4 m  
 - **Precisão:** ±3 mm (condições ideais)  
 - **Ângulo efetivo:** ~15°  
-- **Pinos:** VCC, TRIG, ECHO, GND
+- **Pinos:** VCC, TRIG, ECHO, GND  
 
-> **Importante (3,3 V):** Se usar ESP8266/ESP32 (3,3 V), **proteja o pino ECHO** com um divisor resistivo (ex.: 1,8 kΩ em série com 3,3 kΩ → ~3,3 V).
+> ⚠️ **Importante (3,3 V):**  
+> Se usar ESP8266/ESP32 (3,3 V), proteja o pino **ECHO** com um divisor resistivo (ex.: 1,8 kΩ em série com 3,3 kΩ → ~3,3 V).
 
 ---
 
 ## 🧭 Pinagem
 
-| Pino | Função                           |
-|------|----------------------------------|
-| VCC  | +5 V                             |
-| TRIG | Disparo do pulso ultrassônico    |
-| ECHO | Retorno (largura do pulso)       |
-| GND  | Terra (0 V)                      |
+| Pino | Função                        |
+|------|-------------------------------|
+| VCC  | +5 V                          |
+| TRIG | Disparo do pulso ultrassônico |
+| ECHO | Retorno (largura do pulso)    |
+| GND  | Terra (0 V)                   |
 
 ---
 
 ## 🔌 Ligações (Arduino UNO)
 
-- VCC → **5V**  
-- GND → **GND**  
-- TRIG → **D9** (exemplo)  
-- ECHO → **D10** (exemplo)
+- **VCC** → 5V  
+- **GND** → GND  
+- **TRIG** → D9 (exemplo)  
+- **ECHO** → D10 (exemplo)  
 
-> **Dica:** Mantenha cabos curtos e firmes. Evite apontar o sensor para superfícies muito macias (absorvem som) ou muito inclinadas.
+> 💡 **Dica:** mantenha cabos curtos e firmes.  
+> Evite apontar o sensor para superfícies macias (absorvem som) ou muito inclinadas (refletem mal).
 
 ---
 
 ## ⏱️ Programação Bloqueante vs Não Bloqueante
 
-Ao medir distâncias com o sensor ultrassônico HC-SR04, existem duas abordagens principais de programação:
+### 🔹 Programação **Bloqueante**
+- Usa a função `pulseIn()` para medir o tempo no **ECHO**.  
+- Enquanto espera o retorno, o microcontrolador **fica parado**.  
+- Simples e didática, ótima para começar.  
 
-- **Programação Bloqueante**
+```cpp
+long duracao = pulseIn(ECHO, HIGH);
+float distancia = (duracao * 0.0343) / 2;
+```
 
-Usa a função pulseIn() para medir o tempo do pulso no pino ECHO.
-
-Enquanto espera o retorno, o microcontrolador fica parado, sem executar outras tarefas.
-
-É mais simples e didática, ideal para projetos básicos e testes de bancada.
-
-> long duracao = pulseIn(ECHO, HIGH);  
-> float distancia = (duracao * 0.0343) / 2;
-
-
-➡️ **Desvantagem: se o robô precisa movimentar motores, atualizar um display ou ler outros sensores ao mesmo tempo, tudo fica atrasado porque o código trava durante a medição.**
+➡️ **Desvantagem:** atrasa o robô se ele precisar controlar motores, atualizar um display ou ler outros sensores ao mesmo tempo.
 
 ---
 
--  **Programação Não Bloqueante**
+### 🔹 Programação **Não Bloqueante**
+Existem duas formas principais:
 
-Não usa pulseIn(). Em vez disso, controla o envio e a leitura do pulso com digitalRead() e micros().
+1. **Polling com `micros()`** – o programa acompanha o pino ECHO dentro do `loop()`.  
+   - Vantagem: não trava, permite rodar outras tarefas.  
+   - Desvantagem: se o `loop()` estiver muito pesado, pode perder a leitura.  
 
-O programa não fica preso esperando; pode executar outras tarefas no loop enquanto aguarda o eco.
-
-É mais complexa, mas essencial em projetos de robótica ou sistemas com múltiplas funções simultâneas.
-
-➡️ **Vantagem:** o microcontrolador continua controlando motores, LEDs, comunicação e outros sensores, sem parar o fluxo do programa.
-
----
-
-## Exemplos de códigos
-
-- Exemplo 1: Código simples e didático utilizando a função pulseIn. Exemplo de programação bloqueante.
-
-- Exemplo 2: Codigo mais sofisticado, não usa a função pulseIn desta forma temos um exemplo de programação não bloqueante.
-
+2. **Com Interrupções** – usa `attachInterrupt` para capturar automaticamente as bordas do ECHO.  
+   - Vantagem: mais robusto, não perde pulsos mesmo em código extenso.  
+   - Desvantagem: código mais avançado.
 
 ---
 
-## ✅ **Resumo:**
+## 📄 Exemplos de códigos
 
-- **Bloqueante:** simples e didático, bom para começar.
+- **Exemplo 1 – Bloqueante (simples com `pulseIn`)**  
+  Didático, fácil de aplicar em sala de aula e testes de bancada.  
 
-- **Não bloqueante:** mais avançado, mas indispensável para aplicações em tempo real ou robôs móveis.
+- **Exemplo 2 – Não Bloqueante (polling com `micros`)**  
+  Mais sofisticado, não trava o programa, mas depende de um loop rápido.  
+
+- **Exemplo 3 – Não Bloqueante com Interrupções**  
+  Captura o pulso via hardware, garantindo medições confiáveis mesmo em sistemas complexos.  
 
 ---
+
+## ✅ Resumo
+
+- **Bloqueante:** simples, ótimo para aprender e começar.  
+- **Não bloqueante (polling):** evita travamentos, mas pode falhar se o código estiver muito carregado.  
+- **Não bloqueante (interrupções):** mais robusto, indicado para projetos em tempo real e robôs móveis.  
+
+---
+
+✍️ **Autor:** Professor Claudio Roberto da Silva  
