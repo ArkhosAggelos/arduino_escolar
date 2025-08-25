@@ -8,7 +8,7 @@ Pequeno guia didático e exemplos de código para medir distâncias usando o **s
 
 ---
 
-## 🔎 Como o sensor funciona
+## Como o sensor funciona
 
 1. **Emissão** – O pino **TRIG** envia um pulso ultrassônico (40 kHz) no ar.  
 2. **Reflexão** – Esse som bate em um objeto e retorna.  
@@ -21,7 +21,7 @@ O divisor por 2 é necessário porque o som percorre o caminho **de ida e volta*
 
 ---
 
-## ⚙️ Especificações rápidas
+## Especificações rápidas
 
 - **Tensão de alimentação:** 5 V  
 - **Corrente típica:** ~15 mA  
@@ -35,7 +35,7 @@ O divisor por 2 é necessário porque o som percorre o caminho **de ida e volta*
 
 ---
 
-## 🧭 Pinagem
+## Pinagem
 
 | Pino | Função                        |
 |------|-------------------------------|
@@ -46,21 +46,21 @@ O divisor por 2 é necessário porque o som percorre o caminho **de ida e volta*
 
 ---
 
-## 🔌 Ligações (Arduino UNO)
+## Ligações (Arduino UNO)
 
 - **VCC** → 5V  
 - **GND** → GND  
 - **TRIG** → D9 (exemplo)  
 - **ECHO** → D10 (exemplo)  
 
-> 💡 **Dica:** mantenha cabos curtos e firmes.  
+> **Dica:** mantenha cabos curtos e firmes.  
 > Evite apontar o sensor para superfícies macias (absorvem som) ou muito inclinadas (refletem mal).
 
 ---
 
-## ⏱️ Programação Bloqueante vs Não Bloqueante
+## Programação Bloqueante vs Não Bloqueante
 
-### 🔹 Programação **Bloqueante**
+### Programação **Bloqueante**
 - Usa a função `pulseIn()` para medir o tempo no **ECHO**.  
 - Enquanto espera o retorno, o microcontrolador **fica parado**.  
 - Simples e didática, ótima para começar.  
@@ -70,11 +70,11 @@ long duracao = pulseIn(ECHO, HIGH);
 float distancia = (duracao * 0.0343) / 2;
 ```
 
-➡️ **Desvantagem:** atrasa o robô se ele precisar controlar motores, atualizar um display ou ler outros sensores ao mesmo tempo.
+**Desvantagem:** atrasa o robô se ele precisar controlar motores, atualizar um display ou ler outros sensores ao mesmo tempo.
 
 ---
 
-### 🔹 Programação **Não Bloqueante**
+### Programação **Não Bloqueante**
 Existem duas formas principais:
 
 1. **Polling com `micros()`** – o programa acompanha o pino ECHO dentro do `loop()`.  
@@ -87,7 +87,7 @@ Existem duas formas principais:
 
 ---
 
-## 📄 Exemplos de códigos
+## Exemplos de códigos
 
 - **Exemplo 1 – Bloqueante (simples com `pulseIn`)**  
   Didático, fácil de aplicar em sala de aula e testes de bancada.  
@@ -100,7 +100,7 @@ Existem duas formas principais:
 
 ---
 
-## ✅ Resumo
+## Resumo
 
 - **Bloqueante:** simples, ótimo para aprender e começar.  
 - **Não bloqueante (polling):** evita travamentos, mas pode falhar se o código estiver muito carregado.  
@@ -108,4 +108,4 @@ Existem duas formas principais:
 
 ---
 
-✍️ **Autor:** Professor Claudio Roberto da Silva  
+ 
