@@ -96,7 +96,7 @@ Existem duas formas principais:
   Mais sofisticado, não trava o programa, mas depende de um loop rápido.  
 
 - **Exemplo 3 – Não Bloqueante com Interrupções**  
-  Captura o pulso via hardware, garantindo medições confiáveis mesmo em sistemas complexos.  
+  Captura o pulso via hardware, garantindo medições confiáveis mesmo em sistemas complexos, com muitas linhas de código.  
 
 ---
 
