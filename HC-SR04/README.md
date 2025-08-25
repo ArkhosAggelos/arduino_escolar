@@ -108,4 +108,20 @@ Existem duas formas principais:
 
 ---
 
- 
+## Bibliotecas Populares
+
+Além dos códigos manuais, existem bibliotecas bastante usadas para facilitar o uso do HC-SR04:
+
+- **NewPing**  
+  - Uma das mais populares e otimizadas.  
+  - Suporta múltiplos sensores, tempo limite configurável, funções prontas como `ping_cm()`, `ping_in()` e `ping_median()`.  
+  - Ideal para projetos de robótica mais complexos, que exigem desempenho e confiabilidade.
+
+- **Ultrasonic**  
+  - Biblioteca simples e didática.  
+  - Facilita a leitura da distância em cm sem precisar lidar diretamente com `pulseIn()`.  
+  - Recomendada para iniciantes e projetos educacionais de menor porte.
+
+---
+
+
