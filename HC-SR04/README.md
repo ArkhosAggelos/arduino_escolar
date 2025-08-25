@@ -110,18 +110,20 @@ Existem duas formas principais:
 
 ## Bibliotecas Populares
 
-Além dos códigos manuais, existem bibliotecas bastante usadas para facilitar o uso do HC-SR04:
+Além do código manual apresentado aqui, existem bibliotecas mantidas pela comunidade que facilitam o uso do sensor HC-SR04:
 
 - **NewPing**  
-  - Uma das mais populares e otimizadas.  
-  - Suporta múltiplos sensores, tempo limite configurável, funções prontas como `ping_cm()`, `ping_in()` e `ping_median()`.  
-  - Ideal para projetos de robótica mais complexos, que exigem desempenho e confiabilidade.
+  - Repositório oficial: [github.com/livetronic/Arduino-NewPing](https://github.com/livetronic/Arduino-NewPing)  
+  - Também disponível diretamente no **Arduino IDE**, pelo **Library Manager** (procure por **NewPing**).  
+  - Indicada para projetos de maior desempenho e múltiplos sensores.
 
 - **Ultrasonic**  
-  - Biblioteca simples e didática.  
-  - Facilita a leitura da distância em cm sem precisar lidar diretamente com `pulseIn()`.  
-  - Recomendada para iniciantes e projetos educacionais de menor porte.
+  - Repositório oficial: [github.com/ErickSimoes/Ultrasonic](https://github.com/ErickSimoes/Ultrasonic)  
+  - Também disponível no **Arduino IDE**, pelo **Library Manager** (procure por **Ultrasonic**).  
+  - Indicada para projetos educacionais e iniciantes.  
 
----
+> 💡 **Dica:** Para instalar via IDE, vá em:  
+> **Sketch → Include Library → Manage Libraries…**  
+> Pesquise o nome da biblioteca, clique em **Install** e pronto.
 
 
