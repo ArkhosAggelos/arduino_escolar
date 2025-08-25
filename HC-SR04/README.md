@@ -1,6 +1,6 @@
-# Sensor Ultrassônico SONIC (HC-SR04 compatível)
+# Sensor Ultrassônico (HC-SR04 compatível)
 
-Pequeno guia didático e exemplo de código para medir distâncias usando o **sensor ultrassônico SONIC** em projetos com **Arduino** (compatível com o clássico HC-SR04).
+Pequeno guia didático e exemplo de código para medir distâncias usando o **sensor ultrassônico** em projetos com **Arduino** (compatível com o clássico HC-SR04).
 
 > **Para que serve?**  
 > Medir distâncias de ~2 cm a ~400 cm usando ondas sonoras (40 kHz), muito usado em robótica, obstáculos de carrinhos e projetos STEAM.
@@ -63,7 +63,7 @@ O divisor por 2 é porque o som vai e volta.
 
 ## ⏱️ Programação Bloqueante vs Não Bloqueante
 
-Ao medir distâncias com o sensor ultrassônico HC-SR04 (SONIC), existem duas abordagens principais de programação:
+Ao medir distâncias com o sensor ultrassônico HC-SR04, existem duas abordagens principais de programação:
 
 - **Programação Bloqueante**
 
