@@ -217,5 +217,3 @@ void loop() {
 
 ## Referências
 - [Documentação Arduino](https://www.arduino.cc/)  
-- Datasheet do comparador LM393  
-- Exemplos básicos de sensores de luz em robótica educacional
