@@ -109,9 +109,9 @@ A escolha do resistor fixo ajusta a sensibilidade do circuito. O divisor de tens
 
 ---
 
-## 🔌 Tipos de módulos
+## Tipos de módulos
 
-### ▶️ Módulo de 3 pinos
+### Módulo de 3 pinos
 - **VCC** → alimentação (3,3 V ou 5 V)  
 - **GND** → terra  
 - **D0** → saída **digital** (0 ou 1)  
@@ -121,7 +121,7 @@ A escolha do resistor fixo ajusta a sensibilidade do circuito. O divisor de tens
 
 ---
 
-### ▶️ Módulo de 4 pinos
+### Módulo de 4 pinos
 - **VCC** → alimentação (3,3 V ou 5 V)  
 - **GND** → terra  
 - **D0** → saída **digital** (0 ou 1)  
@@ -131,7 +131,7 @@ A escolha do resistor fixo ajusta a sensibilidade do circuito. O divisor de tens
 
 ---
 
-## ⚡ Conexões básicas
+## Conexões básicas
 
 | Módulo LDR | Arduino UNO |
 |------------|-------------|
@@ -142,7 +142,7 @@ A escolha do resistor fixo ajusta a sensibilidade do circuito. O divisor de tens
 
 ---
 
-## 💡 Exemplos de código
+## Exemplos de código
 
 ### 1. Usando saída digital (D0)
 
@@ -198,7 +198,7 @@ void loop() {
 
 ---
 
-## 📚 Aplicações práticas
+## Aplicações práticas
 - Acender lâmpada automática ao escurecer.  
 - Ajustar brilho de telas e LEDs.  
 - Projetos de automação residencial.  
@@ -206,7 +206,7 @@ void loop() {
 
 ---
 
-## 🔧 Materiais necessários
+## Materiais necessários
 - Arduino UNO (ou compatível)  
 - Módulo LDR (3 pinos ou 4 pinos)  
 - Jumpers  
@@ -215,7 +215,7 @@ void loop() {
 
 ---
 
-## 📎 Referências
+## Referências
 - [Documentação Arduino](https://www.arduino.cc/)  
 - Datasheet do comparador LM393  
 - Exemplos básicos de sensores de luz em robótica educacional
