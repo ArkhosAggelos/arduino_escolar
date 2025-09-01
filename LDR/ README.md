@@ -1,8 +1,10 @@
-# Sensor de luz LDR
+# 🌞 Sensor de Luminosidade (LDR)
 
-## O que é um Sensor LDR?
+Pequeno guia didático para utilizar o **módulo LDR** em projetos com **Arduino**.  
+O LDR (Light Dependent Resistor) é um sensor que varia sua resistência conforme a quantidade de luz incidente.  
+Com ele podemos detectar se está claro ou escuro, medir níveis de luminosidade e automatizar sistemas.
 
-O **LDR** (Light Dependent Resistor) é um sensor que detecta a intensidade da luz. Em português, é chamado de **resistor dependente de luz** ou **fotocélula**.
+---
 
 ### Como funciona?
 
@@ -106,3 +108,114 @@ Assim, o Arduino pode diferenciar facilmente as condições de luz pelo valor li
 A escolha do resistor fixo ajusta a sensibilidade do circuito. O divisor de tensão converte a variação de resistência do LDR em um sinal de tensão compreensível para o Arduino, facilitando o uso em projetos de automação, robótica e eletrônica educacional.
 
 ---
+
+## 🔌 Tipos de módulos
+
+### ▶️ Módulo de 3 pinos
+- **VCC** → alimentação (3,3 V ou 5 V)  
+- **GND** → terra  
+- **D0** → saída **digital** (0 ou 1)  
+
+> Nesse caso, o comparador LM393 gera apenas uma saída digital.  
+> O **potenciômetro azul** ajusta a sensibilidade do limite claro/escuro.
+
+---
+
+### ▶️ Módulo de 4 pinos
+- **VCC** → alimentação (3,3 V ou 5 V)  
+- **GND** → terra  
+- **D0** → saída **digital** (0 ou 1)  
+- **A0** → saída **analógica** (0–1023 no Arduino UNO)  
+
+> Esse modelo é mais completo: além da saída digital, também fornece a leitura analógica proporcional à luz ambiente.
+
+---
+
+## ⚡ Conexões básicas
+
+| Módulo LDR | Arduino UNO |
+|------------|-------------|
+| VCC        | 5V          |
+| GND        | GND         |
+| D0         | D2          |
+| A0 (se tiver) | A0       |
+
+---
+
+## 💡 Exemplos de código
+
+### 1. Usando saída digital (D0)
+
+```cpp
+#define LDR_D0 2
+#define LED    13
+
+void setup() {
+  pinMode(LDR_D0, INPUT);
+  pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int estado = digitalRead(LDR_D0);
+
+  if (estado == LOW) {
+    digitalWrite(LED, HIGH);
+    Serial.println("Escuro → LED ACESO");
+  } else {
+    digitalWrite(LED, LOW);
+    Serial.println("Claro → LED APAGADO");
+  }
+
+  delay(200);
+}
+```
+
+---
+
+### 2. Usando saída analógica (A0)
+
+```cpp
+#define LDR_A0 A0
+#define LED    9
+
+void setup() {
+  pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int valor = analogRead(LDR_A0);
+  Serial.print("Luminosidade: ");
+  Serial.println(valor);
+
+  int brilho = map(valor, 0, 1023, 255, 0);
+  analogWrite(LED, brilho);
+
+  delay(200);
+}
+```
+
+---
+
+## 📚 Aplicações práticas
+- Acender lâmpada automática ao escurecer.  
+- Ajustar brilho de telas e LEDs.  
+- Projetos de automação residencial.  
+- Sensores para robôs que detectam variação de luz.  
+
+---
+
+## 🔧 Materiais necessários
+- Arduino UNO (ou compatível)  
+- Módulo LDR (3 pinos ou 4 pinos)  
+- Jumpers  
+- Protoboard  
+- LED e resistor (220 Ω)  
+
+---
+
+## 📎 Referências
+- [Documentação Arduino](https://www.arduino.cc/)  
+- Datasheet do comparador LM393  
+- Exemplos básicos de sensores de luz em robótica educacional
