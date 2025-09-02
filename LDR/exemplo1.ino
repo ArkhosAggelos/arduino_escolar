@@ -10,7 +10,7 @@
     O resistor pode ser de 10k para começar, pode-se mudar esse valor como 
     for necessário para ajustar a faixa de valores..
 
-    By Professor Claudio Roberto da Silva
+    ©2025 By Professor Claudio Roberto da Silva
 */
 
 #define pinoLDR A0                    // Defina o pino onde o LDR está conectado
