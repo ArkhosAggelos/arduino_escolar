@@ -63,9 +63,8 @@ void loop() {
 ---
 
 ## Esquema de Conexão
-- **VCC** → 5V do Arduino  
-- **GND** → GND do Arduino  
-- **IN**  → Pino digital 7 do Arduino  
+- **VCC** → Pino 7 do Arduino (5V) 
+- **GND** → GND do Arduino   
 - **COM** → Entrada de energia da carga  
 - **NA**  → Saída da carga (liga quando acionado)  
 
