@@ -50,11 +50,8 @@ O LDR normalmente é usado com um resistor fixo, formando um **divisor de tensã
 
 ### Esquema do circuito
 
-```
-(5V) --- [LDR] ---+--- [Resistor Fixo] --- (GND)
-                  |
-             Pino Analógico (A0)
-```
+<img src="img/divisor_tensao.png" alt="Esquema LDR" width="400">
+
 
 ### Fórmula do divisor de tensão
 
