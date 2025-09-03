@@ -11,7 +11,7 @@ O **Relé** é um **interruptor controlado eletricamente**. Ele permite que um s
 
 ## Estrutura do Relé
 
-<img src="img/rele_esquema.png" alt="Esquema Relé" width="400">
+<img src="img/esquema_rele.png" alt="Esquema Relé" width="400">
 
 - **Bobina** → cria um campo magnético quando energizada.  
 - **COM (Comum)** → pino central de saída.  
