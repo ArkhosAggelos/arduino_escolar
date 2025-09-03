@@ -13,7 +13,7 @@ O **Relé** é um **interruptor controlado eletricamente**. Ele permite que um s
 
 <img src="img/rele_esquema.png" alt="Esquema Relé" width="400">
 
-- **Bobina** → cria um campo magnético quando energizada.  
+- **Bobina** → cria um campo magnético quando energizada e liga o relé.  
 - **COM (Comum)** → pino central de saída.  
 - **NA (Normalmente Aberto)** → liga somente quando o relé é acionado.  
 - **NF (Normalmente Fechado)** → permanece ligado até o relé ser acionado.  
